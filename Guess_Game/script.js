@@ -14,13 +14,25 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".highscore").textContent = highscore;
     }
   } else if (guess > guessNumber) {
-    message.textContent = "Too High!";
-    score--;
-    document.querySelector(".score").textContent = score;
+    if (score > 1) {
+      message.textContent = "Too High!";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      message.textContent = "You Lost the Game!";
+      score=0;
+      document.querySelector(".score").textContent = score;
+    }
   } else if (guess < guessNumber) {
-    message.textContent = "Too Low!";
-    score--;
-    document.querySelector(".score").textContent = score;
+    if (score > 1) {
+      message.textContent = "Too Low!";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      score=0;
+      document.querySelector(".score").textContent = score;
+      message.textContent = "You Lost the Game!";
+    }
   }
 });
 document.querySelector(".again").addEventListener("click", function () {
