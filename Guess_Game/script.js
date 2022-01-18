@@ -9,6 +9,8 @@ document.querySelector(".check").addEventListener("click", function () {
   } else if (guessNumber === guess) {
     message.textContent = "Congratulations, You Won!";
     document.querySelector(".number").textContent = guessNumber;
+    document.querySelector('body').classList.remove('bg-dark')
+    document.querySelector('body').classList.add('bg-danger')
     if (score > highscore) {
       highscore = score;
       document.querySelector(".highscore").textContent = highscore;
@@ -44,4 +46,5 @@ document.querySelector(".again").addEventListener("click", function () {
   message.textContent = "Start guessing...";
   document.querySelector(".number").textContent = "?";
   document.querySelector(".guess").value = "";
+  document.querySelector('body').classList.add('bg-dark')
 });
